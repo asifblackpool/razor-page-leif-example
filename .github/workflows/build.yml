@@ -10,6 +10,8 @@ on:
 env:
   REGISTRY: ghcr.io
   APP_IMAGE: ghcr.io/${{ github.repository }}/${{ github.ref_name }}/app
+  CONTENSIS_CLIENT_ID: aafd27eb-75b2-4b5b-8371-c5489082c710
+  CONTENSIS_SHARED_SECRET: 9dc71260e4de430f956162a67345cc53-147c9d2fed75415788f9fdd321d255b1-2b734d1c6f3d471cb0d62157ac681f85
 
 jobs:
   build-latest:
@@ -58,6 +60,6 @@ jobs:
           block-id: razor-page-leif-example
           alias: blackpool
           project-id: lgWebsite
-          client-id: ${{ secrets.CONTENSIS_CLIENT_ID }}
-          shared-secret: ${{ secrets.CONTENSIS_SHARED_SECRET }}
+          client-id: ${{ env.CONTENSIS_CLIENT_ID }}
+          shared-secret: ${{ env.CONTENSIS_SHARED_SECRET }}
           image-uri: ${{ env.APP_IMAGE }}:build-${{ github.run_number }}
